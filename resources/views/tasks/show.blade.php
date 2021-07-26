@@ -9,14 +9,11 @@
 </head>
 <body>
 
-<ul>
+<h1>
 
-@foreach($tasks as $task)
+    {{ $task->body }}
 
-    <li> {{ $task->body }} </li>
-
-@endforeach
-</ul>
+</h1>
 
 </body>
 </html>
