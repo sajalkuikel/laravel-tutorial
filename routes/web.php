@@ -2,7 +2,7 @@
 use App\Models\Task;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TasksController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,14 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/tasks', function () {
-    $tasks = Task::all();
-    return view('tasks.index', compact('tasks'));
+Route::get('/tasks', [TasksController::class, 'index']);
+Route::get('/tasks/{task}', [TasksController::class, 'show']);
 
-});
 
-Route::get('/tasks/{task}', function ($id) {
-    $task = Task::find($id);
-    return view('tasks.show', compact('task'));
-
-});
+//Route::get('/tasks', function () {
+//    $tasks = Task::all();
+//    return view('tasks.index', compact('tasks'));
+//
+//});
+//
+//Route::get('/tasks/{task}', function ($id) {
+//    $task = Task::find($id);
+//    return view('tasks.show', compact('task'));
+//
+//});
