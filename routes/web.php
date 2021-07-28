@@ -18,14 +18,4 @@ Route::get('/tasks', [TasksController::class, 'index']);
 Route::get('/tasks/{task}', [TasksController::class, 'show']);
 
 
-//Route::get('/tasks', function () {
-//    $tasks = Task::all();
-//    return view('tasks.index', compact('tasks'));
-//
-//});
-//
-//Route::get('/tasks/{task}', function ($id) {
-//    $task = Task::find($id);
-//    return view('tasks.show', compact('task'));
-//
-//});
+
