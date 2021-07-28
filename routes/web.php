@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\Task;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -15,15 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/tasks', function () {
-    $tasks =  DB::table('tasks')->get();
-
+    $tasks = Task::all();
     return view('tasks.index', compact('tasks'));
 
 });
+
 Route::get('/tasks/{task}', function ($id) {
-
-    $task =  DB::table('tasks')->find($id);
-
+    $task = Task::find($id);
     return view('tasks.show', compact('task'));
 
 });
