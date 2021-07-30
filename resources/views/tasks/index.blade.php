@@ -1,6 +1,10 @@
 
 @extends('layouts.app')
 
+@section('title')
+    All Tasks
+@endsection
+
 @section('content')
 <div class="container">
     <h1> All tasks </h1>
@@ -33,6 +37,13 @@
         @endforeach
         </tbody>
     </table>
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            {{ $tasks->links() }}
+        </div>
+    </div>
+
     <a  href="/tasks/create" class="btn btn-primary"> Create new task</a>
 </div>
 

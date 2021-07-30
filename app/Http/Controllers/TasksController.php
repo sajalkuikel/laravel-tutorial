@@ -8,10 +8,9 @@ use App\Models\Task;
 class TasksController extends Controller
 {
     public function index(){
-        $tasks = Task::all();
+        $tasks = Task::paginate(3);
 
-
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index', compact('tasks')) ;
     }
 
     public function show( Task $task)

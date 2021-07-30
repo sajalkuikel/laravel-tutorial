@@ -1,6 +1,10 @@
 
 @extends('layouts.app')
 
+@section('title')
+    Create new Post
+@endsection
+
 @section('content')
 <div class="container">
     <form action="/tasks" method="post">

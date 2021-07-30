@@ -4,7 +4,7 @@
 <div class="container text-center ">
     <hr>
 
-    This is footer
+    This is footer.
 
 </div>
 
