@@ -24,6 +24,11 @@ class TasksController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate( request() , [
+            'name' => 'required|min:2',
+            'start_date' => 'required',
+            'due_date' => 'required'
+        ]);
         $task = new Task();
         $task->name =  request('name');
         $task->start_date =  request('start_date');
@@ -32,14 +37,5 @@ class TasksController extends Controller
 
         return redirect('/tasks');
     }
-
-//    public  function isCompleted(Task $task){
-//        if (!$task->completed){
-//            return 'Pending';
-//        }
-//        else{
-//            return 'Completed';
-//        }
-//    }
 }
 
