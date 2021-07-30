@@ -1,22 +1,39 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
 
-<ul>
+@extends('layouts.app')
 
-    @foreach($tasks as $task)
+@section('content')
+<div class="container">
+    <h1> All tasks </h1>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Task name</th>
+            <th scope="col">Start date </th>
+            <th scope="col">Due date </th>
+            <th scope="col">Flag </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($tasks as $task)
+        <tr>
+            <th scope="row"> {{ $task->id }}</th>
+            <td>  <a href="/tasks/{{ $task->id }}">  {{ $task->name }} </a></td>
+            <td>{{ $task->start_date }}</td>
+            <td>{{ $task->due_date }}</td>
+            <td>
+                @if(!$task->completed)
+                    {{ 'Pending' }}
+                @else
+                    {{ 'Completed' }}
+                @endif
+            </td>
+        </tr>
+        @endforeach
+        </tbody>
+    </table>
+    <a  href="/tasks/create" class="btn btn-primary"> Create new task</a>
+</div>
 
-        <a href="/tasks/{{ $task->id }}"> <li> {{ $task->body }} </li></a>
-
-    @endforeach
-</ul>
-
-</body>
-</html>
+@endsection
