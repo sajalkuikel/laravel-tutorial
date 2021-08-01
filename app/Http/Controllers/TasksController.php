@@ -36,5 +36,34 @@ class TasksController extends Controller
 
         return redirect('/tasks');
     }
+
+    public function edit( Task $task)
+    {
+        return view('tasks.edit', compact('task'));
+    }
+
+    public function update($id)
+    {
+        $task = Task::find($id);
+        $task->name =  request('name');
+        $task->start_date =  request('start_date');
+        $task->due_date =  request('due_date');
+        $task->save();
+
+        return redirect('/tasks/' . $id);
+    }
+    public function changeFlag($id){
+        $task = Task::find($id);
+
+        if( $task->completed == true)
+        {
+            $task->completed =  false;
+        }
+        else{
+            $task->completed =  true;
+        }
+        $task->save();
+        return redirect('/tasks' );
+    }
 }
 

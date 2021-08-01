@@ -1,11 +1,11 @@
 @extends('tasks.form')
 
 @section('title')
-    Create new Task
+    Edit task
 @endsection
 
-@section('form-action')/tasks@endsection
+@section('form-action')/tasks/{{ $task->id }}/edit @endsection
 
 @section('submit-btn')
-    Add task
+    Update
 @endsection

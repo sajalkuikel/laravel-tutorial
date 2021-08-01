@@ -11,6 +11,14 @@
     <p> Start date  : {{ $task->start_date  }}</p>
     <p> Due  date  : {{ $task->due_date  }}</p>
 
-    <button class="btn btn-success"> Mark completed</button>
+    <form action="/tasks/{{ $task->id }}" method="post">
+        @csrf
+        @if($task->completed == false)
+            <input  type="submit" class="btn btn-success" value=" Mark completed ">
+        @else
+            <input  type="submit" class="btn btn-secondary" value="Mark incomplete" >
+        @endif
+    </form>
+
 </div>
 @endsection

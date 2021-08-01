@@ -17,6 +17,7 @@
             <th scope="col">Start date </th>
             <th scope="col">Due date </th>
             <th scope="col">Flag </th>
+            <th scope="col">Action </th>
         </tr>
         </thead>
         <tbody>
@@ -24,7 +25,7 @@
         <tr>
             <th scope="row"> {{ $task->id }}</th>
             <td>  <a href="/tasks/{{ $task->id }}">  {{ $task->name }} </a></td>
-            <td>{{ $task->start_date }}</td>
+            <td>{{ $task->created_at->toFormattedDateString() }}</td>
             <td>{{ $task->due_date }}</td>
             <td>
                 @if(!$task->completed)
@@ -33,10 +34,12 @@
                     {{ 'Completed' }}
                 @endif
             </td>
+            <td> <a href="/tasks/{{ $task->id }}/edit"> Edit </a> </td>
         </tr>
         @endforeach
         </tbody>
     </table>
+
 
     <div class="row justify-content-center">
         <div class="col-4">
