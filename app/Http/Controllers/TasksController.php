@@ -9,8 +9,7 @@ class TasksController extends Controller
 {
     public function index(){
         $tasks = Task::paginate(3);
-
-        return view('tasks.index', compact('tasks')) ;
+        return view('tasks.index', compact('tasks'));
     }
 
     public function show( Task $task)

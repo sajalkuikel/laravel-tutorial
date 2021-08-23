@@ -18,9 +18,13 @@ Route::get('/' , function () {
 });
 
 Route::get('/tasks', [TasksController::class, 'index']);
+
 Route::get('/tasks/create', [TasksController::class, 'create']);
+
 Route::post('/tasks', [TasksController::class, 'store']);
+
 Route::get('/tasks/{task}', [TasksController::class, 'show']);
+
 Route::post('/tasks/{task}', [TasksController::class, 'changeFlag']);
 
 Route::post('/tasks/{task}/edit', [TasksController::class, 'update']);

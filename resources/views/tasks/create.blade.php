@@ -4,7 +4,7 @@
     Create new Task
 @endsection
 
-@section('form-action')/tasks@endsection
+@section('form-action')/tasks @endsection
 
 @section('submit-btn')
     Add task
